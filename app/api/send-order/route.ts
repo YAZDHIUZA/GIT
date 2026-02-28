@@ -4,8 +4,15 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const TELEGRAM_TOKEN = "8794925629:AAHIbYGMtzXMY5w-MukH6aIfD3VMBKWoxFM";
-    const CHAT_ID = "8236227768";
+    // SECURE WAY: Pulling from Vercel's Environment Variables
+    const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+    const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+
+    // Safety check to ensure the variables exist
+    if (!TELEGRAM_TOKEN || !CHAT_ID) {
+      console.error("Missing Telegram keys in environment variables!");
+      return NextResponse.json({ success: false, error: "Server configuration error" }, { status: 500 });
+    }
 
     const message = `
 🔔 **طلب جديد**
@@ -32,7 +39,7 @@ export async function POST(req: Request) {
 
     if (response.ok) {
       return NextResponse.json({ success: true });
-    }
+    } 
     
     return NextResponse.json({ success: false, error: "Telegram API Error" }, { status: 400 });
 
