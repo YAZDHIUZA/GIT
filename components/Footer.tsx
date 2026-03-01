@@ -62,7 +62,7 @@ const Footer = () => {
           
           {/* Logo Name */}
           <div className="flex items-center gap-2 text-amber-500 font-black text-2xl mb-3 font-tajawal">
-            ATAA Ataa Atabi3a ENERGY <Leaf size={24} className="text-amber-500" />
+            Ataa Atabi3a ENERGY <Leaf size={24} className="text-amber-500" />
           </div>
           
           {/* Tagline */}
