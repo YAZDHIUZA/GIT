@@ -32,7 +32,7 @@ const OrderForm = () => {
   const products = [
     {
       id: 'x3',
-      name: 'Ataa Atabi3a ENERGY X3',
+      name: 'Vitalis plus + x3 PROMO ثلاث علب - وفر 100 - درهم',
       price: '500 درهم',
       oldPrice: '600 درهم',
       desc: '3 علب - الكورس الكامل',
@@ -40,7 +40,7 @@ const OrderForm = () => {
     },
     {
       id: 'x2',
-      name: 'Ataa Atabi3a ENERGY X2 PROMO',
+      name: 'Vitalis plus + x2 PROMO',
       price: '350 درهم',
       oldPrice: '400 درهم',
       desc: 'علبتان - العرض الأكثر طلباً',
@@ -48,7 +48,7 @@ const OrderForm = () => {
     },
     {
       id: 'x1',
-      name: 'Ataa Atabi3a ENERGY',
+      name: 'Vitalis plus',
       price: '200 درهم',
       desc: 'علبة واحدة',
       icon: <Leaf className="text-emerald-500" size={24} />
