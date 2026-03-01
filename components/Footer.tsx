@@ -83,7 +83,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-gray-500 text-xs font-medium mb-4">
-            © 2026 ATAA Ataa Atabi3a ENERGY. جميع الحقوق محفوظة.
+            © 2026 Ataa Atabi3a ENERGY. جميع الحقوق محفوظة.
           </p>
 
           {/* Final Small Medical Disclaimer */}
