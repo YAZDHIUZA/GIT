@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { CheckCircle, User, Phone, MapPin, Home, ShoppingCart, Gem, Leaf, Clock, Crown } from 'lucide-react';
 
 const OrderForm = () => {
-  // --- HYDRATION FIX ---
   const [mounted, setMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ minutes: 15, seconds: 0 });
 
@@ -19,7 +18,6 @@ const OrderForm = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // --- FORM & PRODUCT LOGIC ---
   const [selectedProduct, setSelectedProduct] = useState({
     id: 'x2',
     name: 'ataa atabi3a ENERGY X2 PROMO',
@@ -151,13 +149,12 @@ const OrderForm = () => {
             اختر العرض المناسب لك <ShoppingCart size={28} />
           </h3>
           
-          {/* Changed to a 3-column grid for the new products */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {products.map((prod) => (
               <div 
                 key={prod.id}
                 onClick={() => setSelectedProduct({ id: prod.id, name: prod.name, price: prod.price, desc: prod.desc })}
-                className={`relative cursor-pointer p-6 sm:p-8 rounded-[2rem] border-2 transition-all duration-500 flex flex-col items-center justify-center text-center ${
+                className={`relative cursor-pointer p-6 sm:p-8 rounded-3xl border-2 transition-all duration-500 flex flex-col items-center justify-center text-center ${
                   selectedProduct.id === prod.id 
                   ? 'bg-emerald-800/40 border-emerald-400 scale-105 shadow-[0_0_40px_rgba(52,211,153,0.4)] z-10' 
                   : 'bg-emerald-900/50 border-emerald-800 opacity-60 hover:opacity-100'
@@ -183,7 +180,7 @@ const OrderForm = () => {
                   {prod.oldPrice ? (
                     <span className="text-white/30 text-sm line-through font-bold">{prod.oldPrice}</span>
                   ) : (
-                    <span className="text-transparent text-sm font-bold">spacer</span> /* Keeps layout aligned */
+                    <span className="text-transparent text-sm font-bold">spacer</span>
                   )}
                 </div>
               </div>
@@ -194,25 +191,25 @@ const OrderForm = () => {
         <form onSubmit={handleSubmit} className="p-10 sm:p-14 space-y-8 bg-white max-w-2xl mx-auto">
           <div className="space-y-3">
              <label className="flex items-center gap-2 text-emerald-950 font-black text-base mb-1 justify-start font-tajawal"> <User size={20} className="text-emerald-600"/> الإسم الكامل *</label>
-             <input required type="text" placeholder="مثال: محمد الفاسي" className="w-full p-6 rounded-2xl border-2 border-gray-100 bg-gray-50 text-right outline-none focus:border-emerald-500 focus:bg-white transition-all text-xl font-bold font-tajawal"
+             <input required type="text" placeholder="مثال: محمد الفاسي" className="w-full p-6 rounded-3xl border-2 border-gray-100 bg-gray-50 text-right outline-none focus:border-emerald-500 focus:bg-white transition-all text-xl font-bold font-tajawal"
                value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
           </div>
 
           <div className="space-y-3">
              <label className="flex items-center gap-2 text-emerald-950 font-black text-base mb-1 justify-start font-tajawal"> <Phone size={20} className="text-emerald-600"/> رقم الهاتف *</label>
-             <input required type="tel" placeholder="06XXXXXXXX" className="w-full p-6 rounded-2xl border-2 border-gray-100 bg-gray-50 text-right outline-none focus:border-emerald-500 focus:bg-white transition-all text-xl font-bold font-tajawal"
+             <input required type="tel" placeholder="06XXXXXXXX" className="w-full p-6 rounded-3xl border-2 border-gray-100 bg-gray-50 text-right outline-none focus:border-emerald-500 focus:bg-white transition-all text-xl font-bold font-tajawal"
                value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
           </div>
 
           <div className="space-y-3">
              <label className="flex items-center gap-2 text-emerald-950 font-black text-base mb-1 justify-start font-tajawal"> <MapPin size={20} className="text-emerald-600"/> المدينة *</label>
-             <input required type="text" placeholder="مثال: الدار البيضاء" className="w-full p-6 rounded-2xl border-2 border-gray-100 bg-gray-50 text-right outline-none focus:border-emerald-500 focus:bg-white transition-all text-xl font-bold font-tajawal"
+             <input required type="text" placeholder="مثال: الدار البيضاء" className="w-full p-6 rounded-3xl border-2 border-gray-100 bg-gray-50 text-right outline-none focus:border-emerald-500 focus:bg-white transition-all text-xl font-bold font-tajawal"
                value={formData.city} onChange={(e) => setFormData({...formData, city: e.target.value})} />
           </div>
 
           <div className="space-y-3">
              <label className="flex items-center gap-2 text-emerald-950 font-black text-base mb-1 justify-start font-tajawal"> <Home size={20} className="text-emerald-600"/> العنوان الكامل *</label>
-             <textarea required placeholder="الحي، الشارع، رقم المنزل..." className="w-full p-6 rounded-2xl border-2 border-gray-100 bg-gray-50 text-right outline-none focus:border-emerald-500 focus:bg-white transition-all min-h-[140px] text-xl font-bold font-tajawal"
+             <textarea required placeholder="الحي، الشارع، رقم المنزل..." className="w-full p-6 rounded-3xl border-2 border-gray-100 bg-gray-50 text-right outline-none focus:border-emerald-500 focus:bg-white transition-all min-h-36 text-xl font-bold font-tajawal"
                value={formData.address} onChange={(e) => setFormData({...formData, address: e.target.value})} />
           </div>
 
@@ -221,9 +218,9 @@ const OrderForm = () => {
             <div className="flex items-center justify-start gap-4 text-emerald-900 text-base font-black font-tajawal"><CheckCircle size={24} className="text-emerald-500"/> الدفع عند الاستلام - لا داعي للقلق</div>
           </div>
 
-          <button type="submit" disabled={loading} className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-3xl py-7 rounded-[2rem] shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-5 group font-tajawal">
+          <button type="submit" disabled={loading} className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-3xl py-7 rounded-3xl shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-5 group font-tajawal">
             {loading ? "جاري الإرسال..." : "اطلب الآن ! Commander"} 
-            <ShoppingCart size={32} className="group-hover:translate-x-[8px] transition-transform" />
+            <ShoppingCart size={32} className="group-hover:translate-x-2 transition-transform" />
           </button>
         </form>
       </div>
