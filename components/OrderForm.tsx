@@ -20,7 +20,7 @@ const OrderForm = () => {
 
   const [selectedProduct, setSelectedProduct] = useState({
     id: 'x2',
-    name: 'ataa atabi3a ENERGY X2 PROMO',
+    name: 'Ataa Atabi3a ENERGY X2 PROMO',
     price: '350 درهم',
     desc: 'علبتان - العرض الأكثر طلباً'
   });
@@ -32,7 +32,7 @@ const OrderForm = () => {
   const products = [
     {
       id: 'x3',
-      name: 'ataa atabi3a ENERGY X3',
+      name: 'Ataa Atabi3a ENERGY X3',
       price: '500 درهم',
       oldPrice: '600 درهم',
       desc: '3 علب - الكورس الكامل',
@@ -40,7 +40,7 @@ const OrderForm = () => {
     },
     {
       id: 'x2',
-      name: 'ataa atabi3a ENERGY X2 PROMO',
+      name: 'Ataa Atabi3a ENERGY X2 PROMO',
       price: '350 درهم',
       oldPrice: '400 درهم',
       desc: 'علبتان - العرض الأكثر طلباً',
