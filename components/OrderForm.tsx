@@ -20,7 +20,7 @@ const OrderForm = () => {
 
   const [selectedProduct, setSelectedProduct] = useState({
     id: 'x2',
-    name: 'Ataa Atabi3a ENERGY X2 PROMO',
+    name: 'Vitalis plus + x2 PROMO',
     price: '350 درهم',
     desc: 'علبتان - العرض الأكثر طلباً'
   });
@@ -32,10 +32,10 @@ const OrderForm = () => {
   const products = [
     {
       id: 'x3',
-      name: 'Vitalis plus + x3 PROMO ثلاث علب - وفر 100 - درهم',
+      name: 'Vitalis plus + x3 PROMO GOLD👑',
       price: '500 درهم',
       oldPrice: '600 درهم',
-      desc: '3 علب - الكورس الكامل',
+      desc: 'ثلاث علب - وفر 100 درهم',
       icon: <Crown className="text-amber-400" size={24} />
     },
     {
@@ -48,7 +48,7 @@ const OrderForm = () => {
     },
     {
       id: 'x1',
-      name: 'Vitalis plus',
+      name: 'Vitalis plus +',
       price: '200 درهم',
       desc: 'علبة واحدة',
       icon: <Leaf className="text-emerald-500" size={24} />
