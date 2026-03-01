@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { CheckCircle, User, Phone, MapPin, Home, ShoppingCart, Gem, Leaf, Clock } from 'lucide-react';
+import { CheckCircle, User, Phone, MapPin, Home, ShoppingCart, Gem, Leaf, Clock, Crown } from 'lucide-react';
 
 const OrderForm = () => {
   // --- HYDRATION FIX ---
@@ -21,10 +21,10 @@ const OrderForm = () => {
 
   // --- FORM & PRODUCT LOGIC ---
   const [selectedProduct, setSelectedProduct] = useState({
-    id: 'promo',
-    name: 'Roujola ENERGY x2 PROMO',
-    price: '399 درهم',
-    desc: 'علبتان - وفر 39 درهم'
+    id: 'x2',
+    name: 'ataa atabi3a ENERGY X2 PROMO',
+    price: '350 درهم',
+    desc: 'علبتان - العرض الأكثر طلباً'
   });
   
   const [formData, setFormData] = useState({ name: '', phone: '', city: '', address: '' });
@@ -33,17 +33,25 @@ const OrderForm = () => {
 
   const products = [
     {
-      id: 'promo',
-      name: 'Roujola ENERGY x2 PROMO',
-      price: '399 درهم',
-      oldPrice: '438 درهم',
-      desc: 'علبتان - وفر 39 درهم',
+      id: 'x3',
+      name: 'ataa atabi3a ENERGY X3',
+      price: '500 درهم',
+      oldPrice: '600 درهم',
+      desc: '3 علب - الكورس الكامل',
+      icon: <Crown className="text-amber-400" size={24} />
+    },
+    {
+      id: 'x2',
+      name: 'ataa atabi3a ENERGY X2 PROMO',
+      price: '350 درهم',
+      oldPrice: '400 درهم',
+      desc: 'علبتان - العرض الأكثر طلباً',
       icon: <Gem className="text-blue-400" size={24} />
     },
     {
-      id: 'single',
-      name: 'Roujola ENERGY',
-      price: '219 درهم',
+      id: 'x1',
+      name: 'ataa atabi3a ENERGY',
+      price: '200 درهم',
       desc: 'علبة واحدة',
       icon: <Leaf className="text-emerald-500" size={24} />
     }
@@ -119,7 +127,7 @@ const OrderForm = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-4 sm:p-6 mb-20" dir="rtl">
+    <div className="max-w-4xl mx-auto p-4 sm:p-6 mb-20" dir="rtl">
       <div className="text-center mb-10">
         <div className="bg-red-50 border-2 border-red-100 inline-flex items-center gap-3 px-8 py-4 rounded-3xl mb-8 shadow-sm">
           <Clock className="text-red-500 animate-pulse" size={24} />
@@ -143,12 +151,13 @@ const OrderForm = () => {
             اختر العرض المناسب لك <ShoppingCart size={28} />
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Changed to a 3-column grid for the new products */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {products.map((prod) => (
               <div 
                 key={prod.id}
                 onClick={() => setSelectedProduct({ id: prod.id, name: prod.name, price: prod.price, desc: prod.desc })}
-                className={`relative cursor-pointer p-8 rounded-[2rem] border-2 transition-all duration-500 flex flex-col items-center justify-center text-center ${
+                className={`relative cursor-pointer p-6 sm:p-8 rounded-[2rem] border-2 transition-all duration-500 flex flex-col items-center justify-center text-center ${
                   selectedProduct.id === prod.id 
                   ? 'bg-emerald-800/40 border-emerald-400 scale-105 shadow-[0_0_40px_rgba(52,211,153,0.4)] z-10' 
                   : 'bg-emerald-900/50 border-emerald-800 opacity-60 hover:opacity-100'
@@ -160,25 +169,29 @@ const OrderForm = () => {
                   </div>
                 )}
                 
-                {prod.id === 'promo' && (
-                  <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-6 py-1.5 rounded-full text-xs font-black uppercase shadow-lg font-tajawal">
+                {prod.id === 'x2' && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-6 py-1.5 rounded-full text-xs font-black uppercase shadow-lg font-tajawal whitespace-nowrap">
                     الأكثر طلباً 🔥
                   </div>
                 )}
 
                 <div className="mb-4 bg-white/10 p-4 rounded-2xl">{prod.icon}</div>
-                <h4 className="text-white font-black text-lg mb-1 font-tajawal">{prod.name}</h4>
-                <p className="text-emerald-300 text-sm font-bold mb-5 font-tajawal">{prod.desc}</p>
-                <div className="flex flex-col items-center gap-1 font-tajawal">
+                <h4 className="text-white font-black text-base md:text-lg mb-1 font-tajawal">{prod.name}</h4>
+                <p className="text-emerald-300 text-xs sm:text-sm font-bold mb-5 font-tajawal">{prod.desc}</p>
+                <div className="flex flex-col items-center gap-1 font-tajawal mt-auto">
                   <span className="text-white text-3xl font-black">{prod.price}</span>
-                  {prod.oldPrice && <span className="text-white/30 text-base line-through font-bold">{prod.oldPrice}</span>}
+                  {prod.oldPrice ? (
+                    <span className="text-white/30 text-sm line-through font-bold">{prod.oldPrice}</span>
+                  ) : (
+                    <span className="text-transparent text-sm font-bold">spacer</span> /* Keeps layout aligned */
+                  )}
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-10 sm:p-14 space-y-8 bg-white">
+        <form onSubmit={handleSubmit} className="p-10 sm:p-14 space-y-8 bg-white max-w-2xl mx-auto">
           <div className="space-y-3">
              <label className="flex items-center gap-2 text-emerald-950 font-black text-base mb-1 justify-start font-tajawal"> <User size={20} className="text-emerald-600"/> الإسم الكامل *</label>
              <input required type="text" placeholder="مثال: محمد الفاسي" className="w-full p-6 rounded-2xl border-2 border-gray-100 bg-gray-50 text-right outline-none focus:border-emerald-500 focus:bg-white transition-all text-xl font-bold font-tajawal"

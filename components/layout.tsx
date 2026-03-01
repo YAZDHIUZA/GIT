@@ -3,7 +3,7 @@ import React from 'react';
 // import '../globals.css'; 
 
 export const metadata = {
-  title: 'Roujola ENERGY | الطاقة الطبيعية للحياة',
+  title: 'ataa atabi3a ENERGY | الطاقة الطبيعية للحياة',
   description: 'منتج طبيعي متميز لدعم الحيوية والصحة العامة',
 };
 

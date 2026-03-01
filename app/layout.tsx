@@ -9,7 +9,7 @@ const tajawal = Tajawal({
 });
 
 export const metadata: Metadata = {
-  title: "Roujola ENERGY | الطاقة الطبيعية للحياة",
+  title: "ataa atabi3a ENERGY | الطاقة الطبيعية للحياة",
   description: "منتج طبيعي متميز لدعم الحيوية والصحة العامة",
 };
 
