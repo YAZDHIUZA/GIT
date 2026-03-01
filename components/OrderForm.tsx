@@ -48,7 +48,7 @@ const OrderForm = () => {
     },
     {
       id: 'x1',
-      name: 'ataa atabi3a ENERGY',
+      name: 'Ataa Atabi3a ENERGY',
       price: '200 درهم',
       desc: 'علبة واحدة',
       icon: <Leaf className="text-emerald-500" size={24} />
