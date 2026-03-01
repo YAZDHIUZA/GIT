@@ -35,7 +35,7 @@ const Benefits: React.FC = () => {
       <div className="container mx-auto px-6">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-4">لماذا تختار Roujola ENERGY؟</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-4">لماذا تختار Ataa Atabi3a ENERGY؟</h2>
           <div className="flex justify-center gap-8 md:gap-16 text-sm md:text-base font-bold text-emerald-700 mt-6">
             <div className="flex flex-col items-center">
               <span className="text-2xl md:text-3xl font-black">10,000+</span>
