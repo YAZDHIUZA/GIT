@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageSquare, X, Send, Bot, AlertTriangle, Info } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, AlertTriangle, Info, Leaf } from 'lucide-react';
 
 export default function BotChat() {
   const [isOpen, setIsOpen] = useState(false);
