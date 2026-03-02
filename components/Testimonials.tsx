@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { MessageCircle, Star, ChevronRight, ChevronLeft, PlayCircle, Play } from 'lucide-react';
+import FloatingWhatsApp from './FloatingWhatsApp';
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -124,6 +125,9 @@ const Testimonials = () => {
           ))}
         </div>
       </div>
+
+      {/* --- BOT CHAT --- */}
+      <FloatingWhatsApp />
 
     </section>
   );
