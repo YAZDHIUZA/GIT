@@ -2,14 +2,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageSquare, X, Send, Bot, AlertTriangle, Info, Leaf } from 'lucide-react';
 
-export default function BotChat() {
+export default function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
   const [inputText, setInputText] = useState('');
   const [messages, setMessages] = useState<{type: 'bot' | 'user', text: string}[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to bottom when new messages arrive
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -20,7 +19,6 @@ export default function BotChat() {
     }
   }, [messages, isOpen, isTyping]);
 
-  // Bot response logic
   const handleQuickReply = (text: string) => {
     addUserMessage(text);
     generateBotResponse(text);
@@ -44,6 +42,8 @@ export default function BotChat() {
     setTimeout(() => {
       let botReply = "شكراً لتواصلك معنا! سيتم الرد عليك قريباً. للطلب السريع يرجى ملء الاستمارة في الصفحة.";
       
+      const ingredients = ['العسل', 'حبوب اللقاح', 'غذاء ملكة النحل', 'العكبر', 'الجينسينغ', 'الزعفران', 'الحبة السوداء', 'القرفة', 'الليمون الاسود', 'العيل', 'الزنجبيل', 'الخو دنجال', 'عرق سوس', 'نجمة الارض', 'زريعة الكرافص', 'زريعة القزبر', 'زريعة الجزر', 'زريعة اللفت', 'الماكا', 'حياة النفوس'];
+
       if (userText.includes('الفوائد')) {
         botReply = "Ataa Atabi3a مصمم لدعم الطاقة والحيوية والصحة العامة والجنسية للرجال والنساء، وهو مكون من أعشاب طبيعية 100%.";
       } else if (userText.includes('الاستخدام')) {
@@ -52,8 +52,8 @@ export default function BotChat() {
         botReply = "لدينا 3 عروض رائعة:\n1. علبة واحدة بـ 200 درهم\n2. عرض التوفير (علبتين) بـ 350 درهم 🔥\n3. الكورس الذهبي (3 علب) بـ 500 درهم 👑\nالتوصيل مجاني لجميع مدن المغرب!";
       } else if (userText.includes('تحذيرات')) {
         botReply = "المنتج آمن تماماً، ولكن يجب تجنب الاستخدام في حالة الحمل أو الرضاعة. وإذا كنت تعاني من الضغط أو السكري يرجى الاكتفاء بملعقة صغيرة واستشارة طبيبك.";
-      } else if (userText.includes('العسل') || userText.includes('الجينسينغ') || userText.includes('الماكا')) {
-        botReply = `مكون (${userText}) هو من أهم المكونات الطبيعية في خلطتنا، تم اختياره بعناية لضمان أفضل نتيجة للطاقة والحيوية.`;
+      } else if (ingredients.some(ing => userText.includes(ing))) {
+        botReply = "⚠️ تنبيه مهم\nهاد الخليط قوي بزاف ❗ معلقة صغيرة فالنهار كافية للي عندهم ضغط أو سكري → استشر طبيبك";
       }
 
       setMessages(prev => [...prev, { type: 'bot', text: botReply }]);
@@ -63,19 +63,19 @@ export default function BotChat() {
 
   return (
     <>
-      {/* Floating Button */}
+      {/* Floating Button - تم التثبيت في الجهة اليسرى */}
       {!isOpen && (
         <button 
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 left-6 md:right-6 md:left-auto w-16 h-16 bg-[#047857] rounded-full flex items-center justify-center text-white shadow-[0_0_20px_rgba(4,120,87,0.4)] z-50 hover:scale-110 hover:bg-[#065f46] transition-all duration-300 animate-bounce"
+          className="fixed bottom-6 left-6 w-16 h-16 bg-[#047857] rounded-full flex items-center justify-center text-white shadow-[0_0_20px_rgba(4,120,87,0.4)] z-50 hover:scale-110 hover:bg-[#065f46] transition-all duration-300 animate-bounce"
         >
           <MessageSquare size={30} />
         </button>
       )}
 
-      {/* Chat Window */}
+      {/* Chat Window - تم التثبيت في الجهة اليسرى */}
       {isOpen && (
-        <div className="fixed bottom-0 left-0 w-full h-[85vh] md:h-auto md:max-h-[650px] md:w-[400px] md:bottom-24 md:right-6 bg-white md:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-50 border border-gray-200 animate-in slide-in-from-bottom-10 fade-in duration-300" dir="rtl">
+        <div className="fixed bottom-0 left-0 w-full h-[85vh] md:h-auto md:max-h-162.5 md:w-100 md:bottom-24 md:left-6 bg-white md:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-50 border border-gray-200 animate-in slide-in-from-bottom-10 fade-in duration-300" dir="rtl">
           
           {/* Header */}
           <div className="bg-[#047857] p-4 flex justify-between items-center text-white shadow-md relative z-10">
@@ -96,12 +96,12 @@ export default function BotChat() {
             </button>
           </div>
 
-          {/* Chat Body (Scrollable) */}
+          {/* Chat Body */}
           <div className="flex-1 overflow-y-auto bg-gray-50 p-4 space-y-4">
             
             {/* Initial Bot Welcome Message */}
             <div className="flex gap-2">
-              <div className="w-8 h-8 rounded-full bg-[#047857] flex-shrink-0 flex items-center justify-center text-white mt-1">
+              <div className="w-8 h-8 rounded-full bg-[#047857] shrink-0 flex items-center justify-center text-white mt-1">
                 <Bot size={16} />
               </div>
               <div className="bg-white border border-gray-100 shadow-sm p-4 rounded-2xl rounded-tr-none text-gray-800 text-sm font-medium font-tajawal max-w-[85%] leading-relaxed">
@@ -185,7 +185,7 @@ export default function BotChat() {
             {messages.map((msg, index) => (
               <div key={index} className={`flex gap-2 ${msg.type === 'user' ? 'flex-row-reverse' : ''}`}>
                 {msg.type === 'bot' && (
-                  <div className="w-8 h-8 rounded-full bg-[#047857] flex-shrink-0 flex items-center justify-center text-white mt-1">
+                  <div className="w-8 h-8 rounded-full bg-[#047857] shrink-0 flex items-center justify-center text-white mt-1">
                     <Bot size={16} />
                   </div>
                 )}
@@ -202,7 +202,7 @@ export default function BotChat() {
             {/* Typing Indicator */}
             {isTyping && (
                <div className="flex gap-2">
-                 <div className="w-8 h-8 rounded-full bg-[#047857] flex-shrink-0 flex items-center justify-center text-white mt-1">
+                 <div className="w-8 h-8 rounded-full bg-[#047857] shrink-0 flex items-center justify-center text-white mt-1">
                     <Bot size={16} />
                   </div>
                  <div className="bg-white border border-gray-100 shadow-sm p-4 rounded-2xl rounded-tr-none flex gap-1 items-center">
