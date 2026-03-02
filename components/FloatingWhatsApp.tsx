@@ -42,8 +42,16 @@ export default function FloatingWhatsApp() {
     setTimeout(() => {
       let botReply = "شكراً لتواصلك معنا! سيتم الرد عليك قريباً. للطلب السريع يرجى ملء الاستمارة في الصفحة.";
       
-      const ingredients = ['العسل', 'حبوب اللقاح', 'غذاء ملكة النحل', 'العكبر', 'الجينسينغ', 'الزعفران', 'الحبة السوداء', 'القرفة', 'الليمون الاسود', 'العيل', 'الزنجبيل', 'الخو دنجال', 'عرق سوس', 'نجمة الارض', 'زريعة الكرافص', 'زريعة القزبر', 'زريعة الجزر', 'زريعة اللفت', 'الماكا', 'حياة النفوس'];
+      // قائمة بكل المكونات للتعرف عليها عند الضغط
+      const ingredients = [
+        'العسل', 'حبوب اللقاح', 'غذاء ملكة النحل', 'العكبر', 
+        'الجينسينغ', 'الزعفران', 'الحبة السوداء', 'القرفة', 
+        'الليمون الاسود', 'العيل', 'الزنجبيل', 'الخو دنجال', 
+        'عرق سوس', 'نجمة الارض', 'زريعة الكرافص', 'زريعة القزبر', 
+        'زريعة الجزر', 'زريعة اللفت', 'الماكا', 'حياة النفوس'
+      ];
 
+      // الردود المبرمجة
       if (userText.includes('الفوائد')) {
         botReply = "Ataa Atabi3a مصمم لدعم الطاقة والحيوية والصحة العامة والجنسية للرجال والنساء، وهو مكون من أعشاب طبيعية 100%.";
       } else if (userText.includes('الاستخدام')) {
@@ -53,6 +61,7 @@ export default function FloatingWhatsApp() {
       } else if (userText.includes('تحذيرات')) {
         botReply = "المنتج آمن تماماً، ولكن يجب تجنب الاستخدام في حالة الحمل أو الرضاعة. وإذا كنت تعاني من الضغط أو السكري يرجى الاكتفاء بملعقة صغيرة واستشارة طبيبك.";
       } else if (ingredients.some(ing => userText.includes(ing))) {
+        // الرد المخصص عند الضغط على أي مكون
         botReply = "⚠️ تنبيه مهم\nهاد الخليط قوي بزاف ❗ معلقة صغيرة فالنهار كافية للي عندهم ضغط أو سكري → استشر طبيبك";
       }
 
@@ -63,7 +72,7 @@ export default function FloatingWhatsApp() {
 
   return (
     <>
-      {/* Floating Button - تم التثبيت في الجهة اليسرى */}
+      {/* Floating Button - مثبت في اليسار دائماً */}
       {!isOpen && (
         <button 
           onClick={() => setIsOpen(true)}
@@ -73,7 +82,7 @@ export default function FloatingWhatsApp() {
         </button>
       )}
 
-      {/* Chat Window - تم التثبيت في الجهة اليسرى */}
+      {/* Chat Window - تفتح في اليسار دائماً */}
       {isOpen && (
         <div className="fixed bottom-0 left-0 w-full h-[85vh] md:h-auto md:max-h-162.5 md:w-100 md:bottom-24 md:left-6 bg-white md:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-50 border border-gray-200 animate-in slide-in-from-bottom-10 fade-in duration-300" dir="rtl">
           
