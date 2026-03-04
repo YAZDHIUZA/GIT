@@ -13,7 +13,7 @@ const Footer = () => {
             <AlertCircle size={24} /> إخلاء المسؤولية القانونية
           </div>
           <p className="text-gray-400 text-sm md:text-[15px] leading-relaxed mb-4">
-            <strong className="text-gray-200">Ataa Atabi3a ENERGY</strong> هو منتج طبيعي مصمم لدعم الصحة العامة والحيوية. هذا المنتج ليس علاجاً طبياً ولا يهدف إلى تشخيص أو علاج أو الوقاية من أي مرض.
+            <strong className="text-gray-200">Vitalis Ataa Atabi3a</strong> هو منتج طبيعي مصمم لدعم الصحة العامة والحيوية. هذا المنتج ليس علاجاً طبياً ولا يهدف إلى تشخيص أو علاج أو الوقاية من أي مرض.
           </p>
           <p className="text-gray-400 text-sm md:text-[15px] leading-relaxed mb-4">
             النتائج قد تختلف من شخص لآخر حسب الحالة الصحية ونمط الحياة. ننصح دائماً باستشارة الطبيب قبل استخدام أي منتج غذائي، خاصة إذا كنت تعاني من أي حالة طبية أو تتناول أدوية.
