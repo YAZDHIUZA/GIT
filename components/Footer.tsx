@@ -62,7 +62,7 @@ const Footer = () => {
           
           {/* Logo Name */}
           <div className="flex items-center gap-2 text-amber-500 font-black text-2xl mb-3 font-tajawal">
-            Ataa Atabi3a ENERGY <Leaf size={24} className="text-amber-500" />
+            Vitalis Ataa Atabi3a <Leaf size={24} className="text-amber-500" />
           </div>
           
           {/* Tagline */}
@@ -83,7 +83,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-gray-500 text-xs font-medium mb-4">
-            © 2026 Ataa Atabi3a ENERGY. جميع الحقوق محفوظة.
+            © 2026 Vitalis Ataa Atabi3a. جميع الحقوق محفوظة.
           </p>
 
           {/* Final Small Medical Disclaimer */}
