@@ -52,7 +52,7 @@ const Testimonials = () => {
           
           {/* Top Overlays */}
           <div className="absolute top-4 right-4 z-10 bg-[#047857] text-white text-xs font-black px-3 py-1.5 rounded-full shadow-lg">
-            Roujola ENERGY x2
+            Vitalis plus
           </div>
           <div className="absolute top-4 left-4 z-10 bg-black/60 backdrop-blur-md text-amber-400 text-xs font-black px-3 py-1.5 rounded-full flex items-center gap-1">
             {reviews[activeIndex].rating} <Star size={12} fill="currentColor" />
