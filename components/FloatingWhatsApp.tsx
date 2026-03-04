@@ -93,7 +93,7 @@ export default function FloatingWhatsApp() {
                 <Bot size={24} />
               </div>
               <div>
-                <h3 className="font-black text-lg font-tajawal">مساعد Ataa Atabi3a</h3>
+                <h3 className="font-black text-lg font-tajawal">مساعد Vitalis plus</h3>
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
                   <span className="text-emerald-100 text-xs font-bold">متصل الآن</span>
@@ -114,7 +114,7 @@ export default function FloatingWhatsApp() {
                 <Bot size={16} />
               </div>
               <div className="bg-white border border-gray-100 shadow-sm p-4 rounded-2xl rounded-tr-none text-gray-800 text-sm font-medium font-tajawal max-w-[85%] leading-relaxed">
-                مرحباً بك في <strong className="text-[#047857]">Ataa Atabi3a!</strong> 🌟
+                مرحباً بك في <strong className="text-[#047857]">Vitalis plus!</strong> 🌟
                 <br/><br/>
                 أنا هنا لمساعدتك. يمكنك سؤالي عن:
                 <ul className="list-disc pr-5 mt-2 space-y-1 text-gray-600 font-bold">
@@ -254,7 +254,7 @@ export default function FloatingWhatsApp() {
             </form>
             <div className="text-center mt-3">
               <span className="text-[10px] text-gray-400 font-medium font-tajawal flex items-center justify-center gap-1">
-                <Leaf size={10} className="text-[#047857]" /> Ataa Atabi3a - مساعد ذكي
+                <Leaf size={10} className="text-[#047857]" /> Vitalis plus - مساعد ذكي
               </span>
             </div>
           </div>
